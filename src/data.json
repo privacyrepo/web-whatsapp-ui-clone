@@ -1,6 +1,25 @@
 {
   "conversation_list": [
     {
+      "jobTitle": "José",
+      "primaryRole": "",
+      "typeOfPosition": "",
+      "location": "",
+      "companyName": "Última mensagem enviada pelo José",
+      "isFeatured": false,
+      "isRemote": false,
+
+      "postTime": "2022-09-29T19:15",
+      "companyLogo": "avatar.jpg",
+      "keywords": ["C++", "backend", "web3"],
+      "compensation": {
+        "minimum": "100k USD",
+        "maximum": "110k USD"
+      },
+      "applyLink": "",
+      "jobDescription": ""
+    },
+    {
       "contactName": "José",
       "lastMessage": "Última mensagem enviada pelo José",
       "lastTime": "2022-09-29T19:15",
