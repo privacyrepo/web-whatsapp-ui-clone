@@ -3,13 +3,13 @@ interface Message {
   message: string;
 }
 
-interface Conversation {
+interface Job {
   contactName: string;
   messageHistory: Message[];
   image: string;
 }
 
-interface ConversationListData {
+interface JobListData {
   contactName: string;
   lastMessage: string;
   lastTime: string;
@@ -17,4 +17,4 @@ interface ConversationListData {
   messageHistory: Message[];
 }
 
-export type { Message, Conversation, ConversationListData }
+export type { Message, Job, JobListData };

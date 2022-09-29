@@ -1,13 +1,13 @@
 import "../styles/globals.css";
-import type { AppProps } from 'next/app'
-import { ConversationProvider } from "../context/ConversationContext";
+import type { AppProps } from "next/app";
+import { JobProvider } from "../context/JobContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ConversationProvider>
+    <JobProvider>
       <Component {...pageProps} />
-    </ConversationProvider>
-  )
+    </JobProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;

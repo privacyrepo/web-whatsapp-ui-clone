@@ -1,27 +1,27 @@
 import { useContext, useState } from "react";
-import { ConversationContext } from "../../context/ConversationContext";
+import { JobContext } from "../../context/JobContext";
 import Avatar from "../Avatar";
-import { ConversationListData } from "../../types/Conversation";
+import { JobListData } from "../../types/Job";
 import Moment from "react-moment";
 
-interface ConversationListProps {
-  isFirstConversation?: boolean;
-  data: ConversationListData;
+interface JobListProps {
+  isFirstJob?: boolean;
+  data: JobListData;
 }
 
-export default function ConversationList(props: ConversationListProps) {
-  const { isFirstConversation, data } = props;
-  const { setConversation } = useContext(ConversationContext);
+export default function JobList(props: JobListProps) {
+  const { isFirstJob, data } = props;
+  const { setJob } = useContext(JobContext);
   const { contactName, lastMessage, lastTime, image } = data;
-  const borderHeight = isFirstConversation ? "0px" : "1px";
-  const [isHover, seHover] = useState(false);
+  const borderHeight = isFirstJob ? "0px" : "1px";
+  const [isHover, setHover] = useState(false);
 
   return (
     <div
       className="flex items-center w-full h-[4.5rem] bg-[#111B21] pl-3 pr-4 hover:bg-[#2A3942] cursor-pointer"
-      onMouseMove={() => seHover(true)}
-      onMouseLeave={() => seHover(false)}
-      onClick={() => setConversation(data)}
+      onMouseMove={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onClick={() => setJob(data)}
     >
       <div className="flex w-[4.8rem]">
         <Avatar width="w-12" height="h-12" image={image} />
