@@ -4,18 +4,18 @@ interface Message {
 }
 
 interface Job {
-  contactName: string;
-  messageHistory: Message[];
-  image: string;
+  jobTitle: string;
+  jobDescription: string;
+  logo: string;
 }
 
-interface JobListData {
-  contactName: string;
-  lastMessage: string;
-  lastTime: string;
-  image: string;
-  messageHistory: Message[];
-}
+// interface JobListData {
+//   contactName: string;
+//   lastMessage: string;
+//   lastTime: string;
+//   image: string;
+//   messageHistory: Message[];
+// }
 interface JobListData {
   jobTitle: string;
   companyName: string;
@@ -24,5 +24,6 @@ interface JobListData {
   typeOfPosition: string;
   logo: string;
   isFeatured: boolean;
+  jobDescription: string;
 }
 export type { Message, Job, JobListData };

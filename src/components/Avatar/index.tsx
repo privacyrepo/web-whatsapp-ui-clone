@@ -6,12 +6,18 @@ interface AvatarProps {
   image: string;
 }
 
-export default function Avatar( props: AvatarProps) {
+export default function Avatar(props: AvatarProps) {
   const { width, height, image } = props;
 
   return (
-    <div className={`rounded-full ${width} ${height}`} >
-      <Image src ={`/assets/images/${image}`} alt="Avatar Image" width={"96px"} height={"96px"} className="rounded-full" />
+    <div className={`rounded-full ${width} ${height}`}>
+      <Image
+        src={`/assets/images/${image}`}
+        alt="Avatar Image"
+        width={"96px"}
+        height={"96px"}
+        className="rounded-full"
+      />
     </div>
-  )
+  );
 }
