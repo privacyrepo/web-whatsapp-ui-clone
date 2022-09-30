@@ -137,8 +137,8 @@ export default function Home() {
     <div className="flex justify-center">
       <div className="flex w-full xl:container h-screen xl:py-4">
         <SideBar />
-        <div className="flex w-[70%] bg-[#222E35]">
-          {job.contactName ? <JobDetails /> : <IconHome />}
+        <div className="flex w-[80%] bg-[#222E35]">
+          {job.jobTitle ? <JobDetails /> : <IconHome />}
         </div>
       </div>
     </div>

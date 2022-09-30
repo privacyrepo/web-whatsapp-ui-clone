@@ -2,15 +2,16 @@ import { KeyboardEvent, useContext, useEffect, useState } from "react";
 import { JobContext } from "../../context/JobContext";
 import Avatar from "../Avatar";
 import MessageBalloon from "../MessageBalloon";
+import Description from "./description";
 
 export default function JobDetails() {
   const { job, message, setMessage } = useContext(JobContext);
-  const { contactName, image, messageHistory } = job;
+  const { jobTitle, logo, jobDescription } = job;
   const [messageSend, setMessageSend] = useState("");
 
-  useEffect(() => {
-    setMessage(messageHistory);
-  }, [job]);
+  // useEffect(() => {
+  //   setMessage(messageHistory);
+  // }, [job]);
 
   function changeHandler(evt: KeyboardEvent<HTMLInputElement>) {
     const { key } = evt;
@@ -27,8 +28,8 @@ export default function JobDetails() {
       <div className="flex justify-between w-full px-4">
         <div className="flex justify-between bg-[#202c33] w-full h-14">
           <div className="flex items-center gap-4 h-full">
-            <Avatar width="w-10" height="h-10" image={image} />
-            <h1 className="text-white font-normal">{contactName}</h1>
+            <Avatar width="w-10" height="h-10" image={logo} />
+            <h1 className="text-white font-normal">{jobTitle}</h1>
           </div>
           <div className="flex items-center text-[#8696a0] gap-2">
             <svg
@@ -57,14 +58,21 @@ export default function JobDetails() {
         </div>
       </div>
       <div
-        className="flex flex-col w-full h-full px-24 py-6 overflow-y-auto"
+        className="flex flex-col w-full h-full px-24 py-6 overflow-y-auto "
         style={{ backgroundImage: "url('/assets/images/background.jpg')" }}
       >
-        {message.map((messageJob, index) => {
-          const { me, message } = messageJob;
-
-          return <MessageBalloon key={index} me={me} message={message} />;
-        })}
+        <div className={`flex flex-col items-center w-full h-max`}>
+          <div
+            className={`flex flex-col min-w-[5%] max-w-full h-max bg-[#202c33] p-2 text-white rounded-lg rounded-tr-none mb-3`}
+          >
+            <div className="flex flex-col w-full break-words">
+              <span>{jobDescription}</span>
+            </div>
+            <div className="flex justify-end text-[hsla(0,0%,100%,0.6)] text-sm mt-1">
+              <Description />
+            </div>
+          </div>
+        </div>
       </div>
       <footer className="flex items-center bg-[#202c33] w-full h-16 py-3 text-[#8696a0]">
         <div className="flex py-1 pl-5 gap-3">
