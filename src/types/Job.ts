@@ -16,5 +16,13 @@ interface JobListData {
   image: string;
   messageHistory: Message[];
 }
-
+interface JobListData {
+  jobTitle: string;
+  companyName: string;
+  location: string;
+  postTime: string;
+  typeOfPosition: string;
+  logo: string;
+  isFeatured: boolean;
+}
 export type { Message, Job, JobListData };

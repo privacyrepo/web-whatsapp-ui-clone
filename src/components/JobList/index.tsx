@@ -12,7 +12,15 @@ interface JobListProps {
 export default function JobList(props: JobListProps) {
   const { isFirstJob, data } = props;
   const { setJob } = useContext(JobContext);
-  const { contactName, lastMessage, lastTime, image } = data;
+  const {
+    jobTitle,
+    companyName,
+    location,
+    typeOfPosition,
+    postTime,
+    logo,
+    isFeatured,
+  } = data;
   const borderHeight = isFirstJob ? "0px" : "1px";
   const [isHover, setHover] = useState(false);
 
@@ -24,7 +32,7 @@ export default function JobList(props: JobListProps) {
       onClick={() => setJob(data)}
     >
       <div className="flex w-[4.8rem]">
-        <Avatar width="w-12" height="h-12" image={image} />
+        <Avatar width="w-12" height="h-12" image={logo} />
       </div>
       <div className="flex flex-col w-full">
         <hr
@@ -33,16 +41,17 @@ export default function JobList(props: JobListProps) {
         <div className="flex py-2">
           <div className="flex flex-col w-full h-full ">
             <span className="overflow-y-hidden text-ellipsis text-white text-base">
-              {contactName}
+              <h1 className="text-sm">{jobTitle}</h1>
             </span>
             <span className="overflow-y-hidden text-ellipsis text-[#aebac1] text-sm">
-              {lastMessage}
+              {companyName}
             </span>
           </div>
+          <div className="flex flex-col w-full text-[#aebac1]">{location}</div>
           <div className="flex flex-col w-auto text-[#aebac1]">
             <h1 className="text-xs">
               <Moment fromNow ago>
-                {lastTime}
+                {postTime}
               </Moment>
             </h1>
             {isHover ? (
