@@ -1,15 +1,15 @@
 {
   "job_list": [
     {
-      "jobTitle": "Full-stack Javascript developer",
+      "title": "Full-stack Javascript developer",
       "primaryRole": "",
-      "typeOfPosition": "Full-time",
+      "type": "Full-time",
       "location": "Remote",
-      "companyName": "NFT Port",
+      "company": "NFT Port",
       "isFeatured": false,
       "isRemote": false,
 
-      "postTime": "2022-09-29T19:15",
+      "createdOn": "2022-09-29T19:15",
       "logo": "avatar.jpg",
       "keywords": ["C++", "backend", "web3"],
       "compensation": {
@@ -17,7 +17,7 @@
         "maximum": "110k USD"
       },
       "applyLink": "",
-      "jobDescription": "test description"
+      "description": "test description"
     }
   ]
 }

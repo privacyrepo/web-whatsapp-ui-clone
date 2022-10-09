@@ -9,7 +9,7 @@ export default function SideBar() {
   const filteredJobsList =
     search.length > 0
       ? jobsList.filter((jobList) =>
-          jobList.jobTitle.toLowerCase().includes(search)
+          jobList.title.toLowerCase().includes(search)
         )
       : jobsList;
 

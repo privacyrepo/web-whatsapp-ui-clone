@@ -1,10 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import Header from "../components/Header/Header";
 import JobDetails from "../components/JobDetails";
+import PostJob from "../components/PostJob/PostJob";
 import SideBar from "../components/SideBar";
 import { JobContext } from "../context/JobContext";
 
 export default function Home() {
   const { job } = useContext(JobContext);
+  const [postJob, setPostJob] = useState(false);
+  console.log(1, postJob);
   const IconHome = () => (
     <div className="flex flex-col w-full h-full items-center justify-center">
       <svg
@@ -132,13 +136,35 @@ export default function Home() {
       </div>
     </div>
   );
-
+  let displayElement = null;
+  if (job.title) {
+    console.log(2, postJob);
+    displayElement = <JobDetails />;
+  }
+  if (postJob) {
+    console.log(postJob);
+    displayElement = <PostJob setPostJob={setPostJob} />;
+  }
+  if (!job.title && !postJob) {
+    console.log(3, postJob);
+    displayElement = <IconHome />;
+  }
   return (
-    <div className="flex justify-center">
-      <div className="flex w-full xl:container h-screen xl:py-4">
-        <SideBar />
-        <div className="flex w-[80%] bg-[#222E35]">
-          {job.jobTitle ? <JobDetails /> : <IconHome />}
+    <div className="">
+      <Header setPostJob={setPostJob} />
+      <div className="flex justify-center">
+        <div className="flex w-full xl:container h-screen xl:py-4">
+          <SideBar />
+          <div className="flex w-[80%] bg-[#222E35]">
+            {/* {job.jobTitle ? (
+              <JobDetails />
+            ) : postJob ? (
+              <PostJob setPostJob={setPostJob} />
+            ) : (
+              <IconHome />
+            )} */}
+            {displayElement}
+          </div>
         </div>
       </div>
     </div>

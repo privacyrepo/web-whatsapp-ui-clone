@@ -13,11 +13,11 @@ export default function JobList(props: JobListProps) {
   const { isFirstJob, data } = props;
   const { setJob } = useContext(JobContext);
   const {
-    jobTitle,
-    companyName,
+    title: jobTitle,
+    company: companyName,
     location,
-    typeOfPosition,
-    postTime,
+    type: typeOfPosition,
+    createdOn,
     logo,
     isFeatured,
   } = data;
@@ -51,7 +51,7 @@ export default function JobList(props: JobListProps) {
           <div className="flex flex-col w-auto text-[#aebac1]">
             <h1 className="text-xs">
               <Moment fromNow ago>
-                {postTime}
+                {createdOn}
               </Moment>
             </h1>
             {isHover ? (

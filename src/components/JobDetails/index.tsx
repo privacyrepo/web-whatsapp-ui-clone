@@ -6,7 +6,7 @@ import Description from "./description";
 
 export default function JobDetails() {
   const { job, message, setMessage } = useContext(JobContext);
-  const { jobTitle, logo, jobDescription } = job;
+  const { title: jobTitle, logo, description: jobDescription } = job;
   const [messageSend, setMessageSend] = useState("");
 
   // useEffect(() => {
